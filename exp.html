@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Expense Tracker</title>
+    <link rel="stylesheet" href="exp.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            
+            <h1>💰 Daily Expense Tracker</h1>
+            <p>Take control of your finances and track every rupee</p>
+            <p>Any Issue In The App Contact Me</p>
+        </div>
+
+        <div class="budget-section">
+            <h2>💼 Monthly Budget Setup</h2>
+            <div class="budget-input-group">
+                <div class="input-group">
+                    <label for="salary">Monthly Salary (₹)</label>
+                    <input type="number" id="salary" placeholder="Enter your monthly salary">
+                </div>
+                <button class="btn btn-primary" onclick="setSalary()">Set Budget</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="expense-form">
+                <h3>➕ Add New Expense</h3>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="amount">Amount (₹)</label>
+                        <input type="number" id="amount" placeholder="Enter amount" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option value="food">🍽️ Food</option>
+                            <option value="groceries">🛒 Groceries</option>
+                            <option value="travel">🚗 Travel</option>
+                            <option value="entertainment">🎬 Entertainment</option>
+                            <option value="utilities">💡 Utilities</option>
+                            <option value="healthcare">🏥 Healthcare</option>
+                            <option value="other">📝 Other</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" placeholder="What did you spend on?">
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="addExpense()">Add Expense</button>
+            </div>
+
+            <div class="stats-section">
+                <h3>📊 Budget Overview</h3>
+                <div class="budget-overview">
+                    <div class="budget-card">
+                        <h4>Monthly Salary</h4>
+                        <div class="amount" id="totalSalary">₹0</div>
+                    </div>
+                    <div class="budget-card">
+                        <h4>Total Spent</h4>
+                        <div class="amount" id="totalSpent">₹0</div>
+                    </div>
+                    <div class="budget-card">
+                        <h4>Remaining</h4>
+                        <div class="amount remaining high" id="remaining">₹0</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-breakdown">
+                    <h4>Category Breakdown</h4>
+                    <div id="categoryList">
+                        <div class="no-expenses">No expenses recorded yet</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="expense-list">
+                <h3>📝 Recent Expenses</h3>
+                <div class="date-filter">
+                    <div class="input-group">
+                        <label for="filterDate">Filter by Date</label>
+                        <input type="date" id="filterDate" onchange="filterExpenses()">
+                    </div>
+                    <button class="btn btn-primary" onclick="clearFilter()">Show All</button>
+                </div>
+                <div id="expensesList">
+                    <div class="no-expenses">No expenses to display</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="exp.js"></script>
+</body>
+</html>
